@@ -1,0 +1,31 @@
+# Default values for prometheus.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+server:
+  # Enable only the release namespace for monitoring. By default all namespaces are monitored.
+  # If releaseNamespace and namespaces are both set a merged list will be monitored.
+  releaseNamespace: false
+
+  persistentVolume:
+    ## If true, Prometheus server will create/use a Persistent Volume Claim
+    ## If false, use emptyDir
+    ##
+    enabled: true
+    size: 8Gi
+
+  service:
+    type: ClusterIP
+
+  ## Prometheus data retention period (default if not specified is 15 days)
+  ##
+  retention: "15d"
+
+alertmanager:
+  enabled: false
+
+pushgateway:
+  enabled: false
+
+nodeExporter:
+  enabled: true

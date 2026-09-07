@@ -1,0 +1,7 @@
+server:
+  replicaCount: 1
+  retention: "5d"
+
+prometheus-node-exporter:
+  hostRootFsMount:
+    mountPropagation: None
